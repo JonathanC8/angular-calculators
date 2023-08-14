@@ -1,0 +1,21 @@
+.router-link-style{
+  cursor:pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-shadow{
+  transition: 0.25s;
+}
+
+.card-shadow:hover{
+  scale: 1.15;
+}
+
+.card-shadow header{
+  height: 5rem;
+}
+
+.card-shadow article{
+  height: 18rem;
+}

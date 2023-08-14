@@ -1,0 +1,65 @@
+<div class="grid">
+  <div class="container-fluid" (change)="calculateIncome()">
+    <h1>Enter your information</h1>
+    <div class="currency-wrap">
+      <label for="moneyhr">Wage</label>
+      <span class="currency-symbol">$</span>
+      <input type="number" name="moneyhr" class="currency-input" id="moneyhr" placeholder="15">
+    </div>
+    <label for="hours">Hours per week</label>
+    <input type="number" name="hours"  id="hours" >
+    <label for="tax-type">Tax Form</label>
+    <select name="tax-type" id="" id="tax-type">
+      <option value="W-2">W-2</option>
+      <option value="1099">1099</option>
+      <option value="CapitalGains">Capital Gains</option>
+    </select>
+    <select name="tax-bracket" id="tax-bracket">
+      <option value="0">Under $11,000</option>
+      <option value="1">Over $11,000 under $44,725</option>
+      <option value="2">Over $44,725 under $95,375</option>
+      <option value="3">Over $95,375 under $182,100</option>
+      <option value="4">Over $182,100 under $231,250</option>
+      <option value="5">Over $231,250 under $578,125</option>
+      <option value="6">Over $578,125</option>
+    </select>
+    <label for="rent-cost">Rent</label>
+    <input type="number" name="rent-cost" id="rent-cost">
+    <h3>Expenses</h3>
+    <button role="button" style="width: 100px; margin-right: 25px;" (click)="createExpense()">Add</button><button role="button" style="width: 125px;" (click)="deleteExpense()">Remove</button>
+    <div class="container-fluid" id="expense-list" (change)="calculateExpenses()">
+      <div id="expense1">
+        <input type="text" id="expenseName1" placeholder="Food" style="width:200px">
+        <input type="number" id="expenseCost1" placeholder="200" style="width:100px;">
+      </div>
+    </div>
+    <h3>Savings plan</h3>
+    <div class="container-fluid">
+
+    </div>
+  </div>
+  <div>
+    <h1>Totals</h1>
+    <h3>Pre-Tax</h3>
+    <p>Bi-Weekly income: ${{biWeeklyIncome}}</p>
+    <p>Monthly income: ${{monthlyIncome}}</p>
+    <p>Annual income: ${{annualIncome}}</p>
+    <h3>Taxes</h3>
+    <p>Tax Percentage: {{(taxPercent-ssTax)*100}}%</p>
+    <p>Social Security Tax: {{ssTax*100}}%</p>
+    <p>Additional Tax: ${{additionalTax}}</p>
+    <p>Bi-Weekly income: ${{taxedBiWeekly.toFixed(2)}}</p>
+    <p>Monthly income: ${{taxedMonthlyIncome.toFixed(2)}}</p>
+    <p>Annual income: ${{taxedAnnualIncome.toFixed(2)}}</p>
+  </div>
+  <div>
+    <h1>Left overs</h1>
+    <p>Minimum monthly for rent: ${{rentMin.toFixed(2)}}</p>
+    <p>Minimum pay: ${{minPay.toFixed(2)}}</p>
+    <p>Minimum hours: {{minHour.toFixed(1)}}</p>
+    <h3>Expenses</h3>
+    <p>Total expenses: ${{-totalExpenses.toFixed(2)}}</p>
+    <p>Total leftover: ${{leftOver.toFixed(2)}}</p>
+    <h3>Savings</h3>
+  </div>
+</div>
